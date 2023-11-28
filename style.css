@@ -1,3 +1,21 @@
+.dl{
+  top: 20%;
+  position: relative;
+  border-radius: 24px;
+  z-index: 9999;
+  background-color: #C095EA;
+  width: 320px;
+  height: 40px;
+}
+.dl h1{
+  padding: 8px;
+  font-size: 17px;
+  color: white;
+}
+.dl h3{
+  font-size: 17px;
+  color: white;
+}
 .main{
   padding: 9px;
   border-radius: 9px;
