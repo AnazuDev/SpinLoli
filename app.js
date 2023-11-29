@@ -5,6 +5,7 @@ var type2 = 'K'
 var MAINDL = document.getElementById('main')
 var TIPEDL = document.getElementById('tipe')
 var DL = document.getElementById('dl')
+var IMGDL = document.getElementById('icondl')
 var BGX = new Audio ('sfx/bgx.mp3');
 var BTSFX = new Audio('sfx/btsfx.mp3');
 var COINSFX = new Audio('sfx/coinsfx.mp3');
@@ -48,23 +49,33 @@ function Spin(){
  bgx()
 }
 function SpinLucky() {
-  const data = ~~(Math.random() * 2100)
+  const data = ~~(Math.random() * 4100)
   var jp = 'JACKPOT: '
   document.getElementById('kode').innerHTML = data;
   
+  if (data > 1000 && data <1200){
+    COINSFX.play();
+    CHIP += 1
+    DL.style.display='inline-block'
+    TIPEDL.innerHTML='YOUR SMALL COIN 1+'
+    IMGDL.setAttribute("src", "assets/star.png")
+    dlGone()
+  }
   if (data > 100 && data <300){
     COINSFX.play();
-    CHIP += 2
+    CHIP += 25
     DL.style.display='inline-block'
-    TIPEDL.innerHTML='YOUR COIN 2+'
+    TIPEDL.innerHTML='YOUR BIG COIN 25+'
+    IMGDL.setAttribute("src", "assets/star.png")
     dlGone()
   }
   else {
-    if (data > 40 && data <100){//BAGIAN 50 KEBAWAH MENDAPATKAN 10 POIN
+    if (data > 40 && data <200){//BAGIAN 50 KEBAWAH MENDAPATKAN 50 POIN
     COINSFX.play();
-    CHIP += 10
+    CHIP += 50
     DL.style.display='inline-block'
-    TIPEDL.innerHTML='YOUR COIN 10+'
+    TIPEDL.innerHTML='YOUR MEG COIN 50+'
+    IMGDL.setAttribute("src", "assets/star.png")
     dlGone()
   }
   }
@@ -73,14 +84,24 @@ function SpinLucky() {
      CHIP += 800
      DL.style.display='inline-block'
      TIPEDL.innerHTML='YOUR JACKPOT 800+'
+     IMGDL.setAttribute("src", "assets/star.png")
      dlGone()
     }
    //BAGIAN NAMBAHIN LOLI
       if (data >20 && data <40 ){
+        LOLI += 5
+        LOLISFX.play();
+        DL.style.display='inline-block'
+        TIPEDL.innerHTML='YOUR LOLI COIN 5+'
+        IMGDL.setAttribute("src", "assets/128loli.png")
+        dlGone()
+      }
+      if (data >300 && data <500 ){
         LOLI += 1
         LOLISFX.play();
         DL.style.display='inline-block'
         TIPEDL.innerHTML='YOUR LOLI COIN 1+'
+        IMGDL.setAttribute("src", "assets/128loli.png")
         dlGone()
       }
 document.querySelector('.circle').style.transform = 'rotate(' + data + 'deg)';
