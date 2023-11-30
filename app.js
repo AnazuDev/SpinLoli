@@ -2,6 +2,12 @@ var CHIP = 101
 var LOLI = 0
 var type1 = 'M'
 var type2 = 'K'
+var kristal = 0
+var tiket = 0
+var money = 0
+var endMoney = '$.'
+var TIKET = document.getElementById('tiket')
+var MONEY = document.getElementById('coin_money')
 var MAINDL = document.getElementById('main')
 var TIPEDL = document.getElementById('tipe')
 var DL = document.getElementById('dl')
@@ -24,6 +30,8 @@ function chipSpin(){
   CHIP -= 1
   document.getElementById('chip').innerHTML = CHIP+type1
   document.getElementById('loli').innerHTML = LOLI
+  MONEY.innerHTML = endMoney+money
+  TIKET.innerHTML = tiket
   if (CHIP == 0){
     document.getElementById('spin').style.visibility='hidden'
   }
@@ -49,7 +57,7 @@ function Spin(){
  bgx()
 }
 function SpinLucky() {
-  const data = ~~(Math.random() * 4100)
+  const data = ~~(Math.random() * 4000)
   var jp = 'JACKPOT: '
   document.getElementById('kode').innerHTML = data;
   
@@ -104,6 +112,24 @@ function SpinLucky() {
         IMGDL.setAttribute("src", "assets/128loli.png")
         dlGone()
       }
+      //BAGIAN MONEY
+      if (data >1500 && data <2000 ){
+        money += 1
+        COINSFX.play();
+        DL.style.display='inline-block'
+        TIPEDL.innerHTML='YOUR MONEY $1'
+        IMGDL.setAttribute("src", "assets/money.png")
+        dlGone()
+      }
+      //BAGIAN TIKET
+      if (data >3000 && data <3200 ){
+        tiket += 1
+        COINSFX.play();
+        DL.style.display='inline-block'
+        TIPEDL.innerHTML='YOUR TICKETS +1'
+        IMGDL.setAttribute("src", "assets/tickets.png")
+        dlGone()
+      }
 document.querySelector('.circle').style.transform = 'rotate(' + data + 'deg)';
 
 }
@@ -118,4 +144,18 @@ function sfx(){
 function bgx(){
   
   BGX.play();
+}
+//PEMBELIAN ITEM
+function GetBuy(Item){
+  var HARGA;
+  var items = document.querySelectorAll('.card')
+  items.forEach(function(item) {
+    if (item.querySelector('h3').innerText === namaItem) {
+      HARGA = parseInt(item.querySelector('.nilai').textContent);
+    }
+  })
+  if (money >= HARGA){
+    money -= HARGA
+  }
+  console.console.log('berhasil');
 }
