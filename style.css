@@ -1,3 +1,7 @@
+body{
+  padding: 0;
+  margin: 0;
+}
 .dl{
   position: fixed;
   top: 30%;
@@ -20,16 +24,18 @@
   height: 50px;
 }
 .ads{
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 99;
+  position: relative;
+  top: 30%;
   background-color: #A862DB;
   width: auto;
   height: 50px;
 }
 .shop{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
   padding: 8px;
   display: flex;
   align-items: center;
@@ -53,6 +59,7 @@
   margin: 0;
 }
 .main{
+  position: absolute;
   padding: 9px;
   border-radius: 9px;
   position: fixed;
@@ -125,6 +132,12 @@ span img{
 .money img{
   width: 24px;
   height: 24px;
+}
+.money p{
+  color: white;
+  background-color: #2A1639;
+  padding: 4px;
+  border-radius: 24px;
 }
 .loli{
   display: flex;

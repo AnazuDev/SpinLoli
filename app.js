@@ -6,6 +6,8 @@ var kristal = 0
 var tiket = 0
 var money = 0
 var endMoney = '$.'
+var SHOP = document.querySelector('.shop')
+SHOP.style.display='none'
 var TIKET = document.getElementById('tiket')
 var MONEY = document.getElementById('coin_money')
 var MAINDL = document.getElementById('main')
@@ -158,4 +160,10 @@ function GetBuy(Item){
     money -= HARGA
   }
   console.console.log('berhasil');
+}
+function shop(){
+  SHOP.style.display='inline-block'
+}
+function shopI(){
+  SHOP.style.display='none'
 }
